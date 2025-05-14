@@ -1,0 +1,200 @@
+"use client"
+
+import { useState } from "react"
+import { motion } from "framer-motion"
+import Image from "next/image"
+
+interface CityMarker {
+  name: string
+  nameEs: string
+  x: number
+  y: number
+  whatsapp: string
+  comingSoon?: boolean
+  labelPosition?: "top" | "right" | "bottom" | "left" | "top-left" | "top-right" | "bottom-left" | "bottom-right" // Posiciones adicionales
+}
+
+interface MexicoMapProps {
+  language: "es" | "en"
+}
+
+export function MexicoMap({ language }: MexicoMapProps) {
+  const [activeCity, setActiveCity] = useState<string | null>(null)
+
+  // Coordenadas con posiciones de etiquetas personalizadas
+  const cities: CityMarker[] = [
+    {
+      name: "Mexico City",
+      nameEs: "Ciudad de México",
+      x: 55.2,
+      y: 68.9,
+      whatsapp: "+525512991343",
+      labelPosition: "top", // Etiqueta arriba (posición predeterminada)
+    },
+    {
+      name: "Playa del Carmen",
+      nameEs: "Playa del Carmen",
+      x: 95.4,
+      y: 66,
+      whatsapp: "+529982426454",
+      labelPosition: "left", // Etiqueta a la izquierda
+    },
+    {
+      name: "Mérida",
+      nameEs: "Mérida",
+      x: 88.5,
+      y: 60.1,
+      whatsapp: "+529982426454",
+      labelPosition: "left", // Etiqueta a la izquierda
+    },
+    {
+      name: "Tulum",
+      nameEs: "Tulum",
+      x: 94.3,
+      y: 69.8,
+      whatsapp: "+529982426454",
+      labelPosition: "bottom", // Etiqueta abajo
+    },
+    {
+      name: "Cancún",
+      nameEs: "Cancún",
+      x: 94.8,
+      y: 59.4,
+      whatsapp: "+529982426454",
+      labelPosition: "top-left", // Cambiado a arriba-izquierda para evitar que se corte
+    },
+    {
+      name: "Monterrey",
+      nameEs: "Monterrey",
+      x: 55.2,
+      y: 42, // Ajustado más abajo para mejor centrado
+      whatsapp: "+525512991343",
+      comingSoon: true,
+      labelPosition: "top", // Etiqueta arriba (posición predeterminada)
+    },
+  ]
+
+  const formatPhoneForWhatsApp = (phone: string) => {
+    return phone.replace(/\+/g, "").replace(/\s/g, "")
+  }
+
+  const openWhatsApp = (phone: string) => {
+    window.open(`https://wa.me/${formatPhoneForWhatsApp(phone)}`, "_blank")
+  }
+
+  // Función para obtener la transformación CSS según la posición de la etiqueta
+  const getLabelTransform = (
+    position: "top" | "right" | "bottom" | "left" | "top-left" | "top-right" | "bottom-left" | "bottom-right" = "top",
+  ) => {
+    switch (position) {
+      case "top":
+        return "translate(-50%, -130%)" // Arriba del marcador
+      case "right":
+        return "translate(20%, -50%)" // A la derecha del marcador
+      case "bottom":
+        return "translate(-50%, 130%)" // Abajo del marcador
+      case "left":
+        return "translate(-120%, -50%)" // A la izquierda del marcador
+      case "top-left":
+        return "translate(-120%, -100%)" // Arriba a la izquierda
+      case "top-right":
+        return "translate(20%, -100%)" // Arriba a la derecha
+      case "bottom-left":
+        return "translate(-120%, 50%)" // Abajo a la izquierda
+      case "bottom-right":
+        return "translate(20%, 50%)" // Abajo a la derecha
+      default:
+        return "translate(-50%, -130%)" // Valor predeterminado
+    }
+  }
+
+  return (
+    <div className="relative w-full max-w-3xl mx-auto aspect-[4/3] bg-white rounded-xl shadow-md p-4 overflow-hidden">
+      <div className="absolute inset-0 bg-[#f8f8f8] rounded-xl"></div>
+
+      {/* Map Image */}
+      <div className="relative w-full h-full">
+        <Image
+          src="/images/mexico-3d-map-clean.png"
+          alt="Map of Mexico with service regions"
+          fill
+          style={{ objectFit: "contain" }}
+          className="opacity-100"
+          priority
+        />
+
+        {/* City Markers */}
+        {cities.map((city) => (
+          <div
+            key={city.name}
+            className="absolute"
+            style={{
+              left: `${city.x}%`,
+              top: `${city.y}%`,
+              transform: "translate(-50%, -50%)",
+              zIndex: 20,
+            }}
+          >
+            {/* City Label - Posición personalizada */}
+            <div
+              className={`absolute px-2 py-1 bg-white rounded-md shadow-md text-xs md:text-sm font-medium whitespace-nowrap ${
+                city.comingSoon ? "text-gray-700" : "text-black"
+              }`}
+              style={{
+                transform: getLabelTransform(city.labelPosition),
+                minWidth: "max-content",
+              }}
+            >
+              {language === "es" ? city.nameEs : city.name}
+              {city.comingSoon && (
+                <span className="ml-1 text-[0.65rem] text-yellow-500 font-normal">
+                  {language === "es" ? "(Próximamente)" : "(Coming Soon)"}
+                </span>
+              )}
+            </div>
+
+            {/* City Marker */}
+            <motion.div
+              className="cursor-pointer"
+              initial={{ scale: 1 }}
+              whileHover={{ scale: 1.2 }}
+              onHoverStart={() => setActiveCity(city.name)}
+              onHoverEnd={() => setActiveCity(null)}
+              onClick={() => !city.comingSoon && openWhatsApp(city.whatsapp)}
+            >
+              <motion.div className={`relative flex flex-col items-center ${city.comingSoon ? "opacity-80" : ""}`}>
+                <motion.div
+                  className={`w-4 h-4 md:w-5 md:h-5 rounded-full ${
+                    city.comingSoon ? "bg-gray-500" : "bg-[#ccb699]"
+                  } ${activeCity === city.name ? "ring-4 ring-[#ccb699]/30" : ""} shadow-md`}
+                  animate={{
+                    backgroundColor:
+                      activeCity === city.name
+                        ? city.comingSoon
+                          ? "#666666"
+                          : "#b39c7d"
+                        : city.comingSoon
+                          ? "#999999"
+                          : "#ccb699",
+                  }}
+                />
+              </motion.div>
+            </motion.div>
+          </div>
+        ))}
+      </div>
+
+      {/* Legend */}
+      <div className="absolute bottom-2 left-2 bg-white/90 p-2 rounded-md text-xs">
+        <div className="flex items-center mb-1">
+          <div className="w-3 h-3 rounded-full bg-[#ccb699] mr-2"></div>
+          <span>{language === "es" ? "Ciudades activas" : "Active cities"}</span>
+        </div>
+        <div className="flex items-center">
+          <div className="w-3 h-3 rounded-full bg-gray-500 mr-2"></div>
+          <span>{language === "es" ? "Próximamente" : "Coming soon"}</span>
+        </div>
+      </div>
+    </div>
+  )
+}
