@@ -182,10 +182,10 @@ export function ContactSection() {
               <div>
                 <h4 className="font-semibold mb-1">{language === "es" ? "Correo Electrónico" : "Email"}</h4>
                 <a
-                  href="mailto:mrhoodventas@gmail.com"
+                  href="mailto:ventas@limpiezadecampanas.com.mx"
                   className="text-gray-300 hover:text-[#ccb699] transition-colors"
                 >
-                  mrhoodventas@gmail.com
+                  ventas@limpiezadecampanas.com.mx
                 </a>
               </div>
             </motion.div>

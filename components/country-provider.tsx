@@ -28,13 +28,13 @@ const defaultContactInfo = {
   },
   mexico: {
     phone: "+52 55 1304 8491",
-    email: "mrhoodventas@gmail.com",
+    email: "ventas@limpiezadecampanas.com.mx",
     address: "Xola 154 Álamos - Ciudad de México y alrededores",
     whatsapp: "+52 55 1304 8491",
   },
   caribe: {
     phone: "+52 998 242 6454",
-    email: "mrhoodventas@gmail.com",
+    email: "ventas@limpiezadecampanas.com.mx",
     address:
       "Carretera Federal y Calle 23 Sur, Ejidal, 77710 Playa del Carmen, Q.R. Playa del Carmen, Cancun, Tulum, Merida",
     whatsapp: "+52 998 242 6454",
