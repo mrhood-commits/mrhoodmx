@@ -31,7 +31,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contacto" className="py-20 bg-[#222222] text-white">
+    <section id="contacto" className="py-20 bg-[#222222] dark:bg-[#1a1a1a] text-white">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-12"
@@ -49,7 +49,7 @@ export function ContactSection() {
           initial="hidden"
           animate={inView ? "show" : "hidden"}
         >
-          <motion.div variants={item} className="bg-[#2a2a2a] rounded-xl p-8 mb-10">
+          <motion.div variants={item} className="bg-[#2a2a2a] dark:bg-[#222222] rounded-xl p-8 mb-10">
             <h3 className="text-2xl font-bold mb-8 border-b border-[#ccb699] pb-2 inline-block">
               {language === "es" ? "Información de Contacto" : "Contact Information"}
             </h3>
@@ -74,7 +74,7 @@ export function ContactSection() {
                       href="https://maps.app.goo.gl/Ld9Eo9Eo9Eo9Eo9E6"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-[#ccb699] transition-colors flex items-center"
+                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors flex items-center"
                     >
                       <span>Xola 154 Álamos - Ciudad de México y alrededores</span>
                       <ExternalLink className="ml-2 h-4 w-4" />
@@ -89,7 +89,7 @@ export function ContactSection() {
                     <div className="space-y-2">
                       <a
                         href="https://wa.me/525552957168"
-                        className="text-gray-300 hover:text-[#ccb699] transition-colors block"
+                        className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors block"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -97,7 +97,7 @@ export function ContactSection() {
                       </a>
                       <a
                         href="https://wa.me/525512991343"
-                        className="text-gray-300 hover:text-[#ccb699] transition-colors block"
+                        className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors block"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -105,7 +105,7 @@ export function ContactSection() {
                       </a>
                       <a
                         href="https://wa.me/525565364142"
-                        className="text-gray-300 hover:text-[#ccb699] transition-colors block"
+                        className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors block"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -121,7 +121,7 @@ export function ContactSection() {
                     <h4 className="font-semibold mb-1">{language === "es" ? "URGENCIAS" : "EMERGENCIES"}</h4>
                     <a
                       href="https://wa.me/525565364142"
-                      className="text-gray-300 hover:text-[#ccb699] transition-colors"
+                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -150,12 +150,12 @@ export function ContactSection() {
                       href="https://maps.app.goo.gl/Ld9Eo9Eo9Eo9Eo9E6"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-[#ccb699] transition-colors flex items-center"
+                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors flex items-center"
                     >
                       <span>Carretera Federal y Calle 23 Sur, Ejidal, 77710 Playa del Carmen, Q.R.</span>
                       <ExternalLink className="ml-2 h-4 w-4" />
                     </a>
-                    <p className="text-gray-400 mt-1">Playa del Carmen, Cancun, Tulum, Merida</p>
+                    <p className="text-gray-400 dark:text-[#999999] mt-1">Playa del Carmen, Cancun, Tulum, Merida</p>
                   </div>
                 </motion.div>
 
@@ -165,7 +165,7 @@ export function ContactSection() {
                     <h4 className="font-semibold mb-1">{language === "es" ? "Teléfono" : "Phone"}</h4>
                     <a
                       href="https://wa.me/529982426454"
-                      className="text-gray-300 hover:text-[#ccb699] transition-colors"
+                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -183,7 +183,7 @@ export function ContactSection() {
                 <h4 className="font-semibold mb-1">{language === "es" ? "Correo Electrónico" : "Email"}</h4>
                 <a
                   href="mailto:ventas@limpiezadecampanas.com.mx"
-                  className="text-gray-300 hover:text-[#ccb699] transition-colors"
+                  className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors"
                 >
                   ventas@limpiezadecampanas.com.mx
                 </a>

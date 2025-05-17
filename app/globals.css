@@ -26,24 +26,24 @@
 }
 
 .dark {
-  --background: 0 0% 10%;
-  --foreground: 0 0% 100%;
-  --card: 0 0% 10%;
-  --card-foreground: 0 0% 100%;
-  --popover: 0 0% 10%;
-  --popover-foreground: 0 0% 100%;
+  --background: 0 0% 12%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 18%;
+  --card-foreground: 0 0% 95%;
+  --popover: 0 0% 18%;
+  --popover-foreground: 0 0% 95%;
   --primary: 35 33% 70%;
   --primary-foreground: 0 0% 10%;
-  --secondary: 0 0% 15%;
-  --secondary-foreground: 0 0% 100%;
-  --muted: 0 0% 15%;
+  --secondary: 0 0% 22%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 0 0% 22%;
   --muted-foreground: 0 0% 65%;
-  --accent: 0 0% 15%;
-  --accent-foreground: 0 0% 100%;
+  --accent: 0 0% 22%;
+  --accent-foreground: 0 0% 95%;
   --destructive: 0 63% 31%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 0 0% 20%;
-  --input: 0 0% 20%;
+  --destructive-foreground: 0 0% 95%;
+  --border: 0 0% 25%;
+  --input: 0 0% 25%;
   --ring: 35 33% 70%;
 }
 
@@ -52,7 +52,7 @@ html {
 }
 
 body {
-  @apply bg-background text-foreground;
+  @apply bg-background text-foreground transition-colors duration-300;
 }
 
 /* Estilos modernos para inputs y botones */
@@ -117,4 +117,182 @@ button {
 /* Hack para centrar el contenido del video */
 iframe.youtube-vertical-video {
   transform: scale(1.5) !important;
+}
+
+/* Estilos para el modo oscuro - SOLO GRISES */
+.dark .bg-white {
+  @apply bg-[#2a2a2a];
+}
+
+.dark .bg-gray-50 {
+  @apply bg-[#1c1c1c];
+}
+
+.dark .bg-gray-100 {
+  @apply bg-[#222222];
+}
+
+.dark .bg-gray-200 {
+  @apply bg-[#333333];
+}
+
+.dark .bg-gray-300 {
+  @apply bg-[#444444];
+}
+
+.dark .bg-gray-400 {
+  @apply bg-[#555555];
+}
+
+.dark .bg-gray-500 {
+  @apply bg-[#666666];
+}
+
+.dark .bg-gray-600 {
+  @apply bg-[#777777];
+}
+
+.dark .bg-gray-700 {
+  @apply bg-[#2a2a2a];
+}
+
+.dark .bg-gray-800 {
+  @apply bg-[#222222];
+}
+
+.dark .bg-gray-900 {
+  @apply bg-[#1c1c1c];
+}
+
+.dark .text-gray-700 {
+  @apply text-[#cccccc];
+}
+
+.dark .text-gray-600 {
+  @apply text-[#bbbbbb];
+}
+
+.dark .text-gray-500 {
+  @apply text-[#aaaaaa];
+}
+
+.dark .text-gray-400 {
+  @apply text-[#999999];
+}
+
+.dark .text-gray-300 {
+  @apply text-[#dddddd];
+}
+
+.dark .text-black {
+  @apply text-white;
+}
+
+.dark .shadow-md,
+.dark .shadow-lg,
+.dark .shadow-sm {
+  @apply shadow-[0_4px_12px_0_rgba(0,0,0,0.5)];
+}
+
+/* Optimización para imágenes en modo oscuro */
+.dark .filter.grayscale {
+  filter: grayscale(100%) brightness(0.8) contrast(1.2);
+}
+
+.dark .filter.grayscale:hover {
+  filter: grayscale(0%) brightness(1) contrast(1);
+}
+
+/* Reemplazar cualquier color azulado en modo oscuro */
+.dark .from-blue-50,
+.dark .to-blue-50,
+.dark .bg-blue-50 {
+  @apply bg-[#1c1c1c];
+}
+
+.dark .from-blue-100,
+.dark .to-blue-100,
+.dark .bg-blue-100 {
+  @apply bg-[#222222];
+}
+
+.dark .from-blue-200,
+.dark .to-blue-200,
+.dark .bg-blue-200 {
+  @apply bg-[#333333];
+}
+
+.dark .from-blue-300,
+.dark .to-blue-300,
+.dark .bg-blue-300 {
+  @apply bg-[#444444];
+}
+
+.dark .from-blue-400,
+.dark .to-blue-400,
+.dark .bg-blue-400 {
+  @apply bg-[#555555];
+}
+
+.dark .from-blue-500,
+.dark .to-blue-500,
+.dark .bg-blue-500 {
+  @apply bg-[#666666];
+}
+
+.dark .from-blue-600,
+.dark .to-blue-600,
+.dark .bg-blue-600 {
+  @apply bg-[#777777];
+}
+
+.dark .from-blue-700,
+.dark .to-blue-700,
+.dark .bg-blue-700 {
+  @apply bg-[#2a2a2a];
+}
+
+.dark .from-blue-800,
+.dark .to-blue-800,
+.dark .bg-blue-800 {
+  @apply bg-[#222222];
+}
+
+.dark .from-blue-900,
+.dark .to-blue-900,
+.dark .bg-blue-900 {
+  @apply bg-[#1c1c1c];
+}
+
+/* Asegurar que los bordes también sean grises */
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-gray-300,
+.dark .border-gray-400 {
+  @apply border-[#444444];
+}
+
+.dark .border-gray-500,
+.dark .border-gray-600 {
+  @apply border-[#555555];
+}
+
+.dark .border-gray-700,
+.dark .border-gray-800,
+.dark .border-gray-900 {
+  @apply border-[#333333];
+}
+
+/* Eliminar cualquier tono azul en bordes */
+.dark .border-blue-50,
+.dark .border-blue-100,
+.dark .border-blue-200,
+.dark .border-blue-300,
+.dark .border-blue-400,
+.dark .border-blue-500,
+.dark .border-blue-600,
+.dark .border-blue-700,
+.dark .border-blue-800,
+.dark .border-blue-900 {
+  @apply border-[#444444];
 }

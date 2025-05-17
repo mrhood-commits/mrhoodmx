@@ -148,10 +148,10 @@ export function Clients() {
   }
 
   return (
-    <section id="clientes" className="py-20 bg-white">
+    <section id="clientes" className="py-20 bg-white dark:bg-[#1c1c1c]">
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-12"
+          className="text-3xl md:text-4xl font-bold text-center mb-12 text-black dark:text-white"
           initial={{ opacity: 0, y: -20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
@@ -203,18 +203,18 @@ export function Clients() {
           {/* Navigation arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-md z-10"
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-[#2a2a2a]/80 hover:bg-white dark:hover:bg-[#333333] rounded-full p-2 shadow-md z-10"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="h-6 w-6 text-gray-700" />
+            <ChevronLeft className="h-6 w-6 text-gray-700 dark:text-[#cccccc]" />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-md z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-[#2a2a2a]/80 hover:bg-white dark:hover:bg-[#333333] rounded-full p-2 shadow-md z-10"
             aria-label="Next slide"
           >
-            <ChevronRight className="h-6 w-6 text-gray-700" />
+            <ChevronRight className="h-6 w-6 text-gray-700 dark:text-[#cccccc]" />
           </button>
 
           {/* Dots indicator */}
@@ -224,7 +224,7 @@ export function Clients() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`h-2 rounded-full transition-all ${
-                  currentSlide === index ? "w-6 bg-[#ccb699]" : "w-2 bg-gray-300"
+                  currentSlide === index ? "w-6 bg-[#ccb699]" : "w-2 bg-gray-300 dark:bg-[#444444]"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

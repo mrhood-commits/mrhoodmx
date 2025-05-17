@@ -15,7 +15,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-black text-white py-12">
+    <footer className="bg-black dark:bg-[#111111] text-white py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center text-center">
           <motion.div
@@ -26,7 +26,7 @@ export function Footer() {
             <Image src="/images/mrhoodlogo.png" alt="MR HOOD" width={60} height={60} className="h-16 w-auto" />
           </motion.div>
 
-          <p className="text-gray-400 mb-8 max-w-2xl">
+          <p className="text-gray-400 dark:text-[#999999] mb-8 max-w-2xl">
             {language === "es"
               ? "Profesionales en la limpieza de campanas, ductos y sistemas de extracción."
               : "Professionals in cleaning hoods, ducts and extraction systems."}
@@ -36,7 +36,7 @@ export function Footer() {
           <div className="hidden md:flex space-x-6 mb-8">
             <motion.button
               onClick={() => scrollToSection("inicio")}
-              className="text-gray-400 hover:text-[#ccb699]"
+              className="text-gray-400 dark:text-[#999999] hover:text-[#ccb699]"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
@@ -44,7 +44,7 @@ export function Footer() {
             </motion.button>
             <motion.button
               onClick={() => scrollToSection("porque-elegirnos")}
-              className="text-gray-400 hover:text-[#ccb699]"
+              className="text-gray-400 dark:text-[#999999] hover:text-[#ccb699]"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
@@ -52,7 +52,7 @@ export function Footer() {
             </motion.button>
             <motion.button
               onClick={() => scrollToSection("como-lo-hacemos")}
-              className="text-gray-400 hover:text-[#ccb699]"
+              className="text-gray-400 dark:text-[#999999] hover:text-[#ccb699]"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
@@ -60,7 +60,7 @@ export function Footer() {
             </motion.button>
             <motion.button
               onClick={() => scrollToSection("franquicias")}
-              className="text-gray-400 hover:text-[#ccb699]"
+              className="text-gray-400 dark:text-[#999999] hover:text-[#ccb699]"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
@@ -68,7 +68,7 @@ export function Footer() {
             </motion.button>
             <motion.button
               onClick={() => scrollToSection("contacto")}
-              className="text-gray-400 hover:text-[#ccb699]"
+              className="text-gray-400 dark:text-[#999999] hover:text-[#ccb699]"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
@@ -142,7 +142,7 @@ export function Footer() {
             </motion.a>
           </motion.div>
 
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm w-full">
+          <div className="border-t border-gray-800 dark:border-[#222222] pt-8 text-center text-gray-500 dark:text-[#777777] text-sm w-full">
             <p>
               © {new Date().getFullYear()} MR HOOD.{" "}
               {language === "es" ? "Todos los derechos reservados." : "All rights reserved."}

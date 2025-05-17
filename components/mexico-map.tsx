@@ -109,8 +109,8 @@ export function MexicoMap({ language }: MexicoMapProps) {
   }
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto aspect-[4/3] bg-white rounded-xl shadow-md p-4 overflow-hidden">
-      <div className="absolute inset-0 bg-[#f8f8f8] rounded-xl"></div>
+    <div className="relative w-full max-w-3xl mx-auto aspect-[4/3] bg-white dark:bg-[#2a2a2a] rounded-xl shadow-md p-4 overflow-hidden">
+      <div className="absolute inset-0 bg-[#f8f8f8] dark:bg-[#333333] rounded-xl"></div>
 
       {/* Map Image */}
       <div className="relative w-full h-full">
@@ -119,7 +119,7 @@ export function MexicoMap({ language }: MexicoMapProps) {
           alt="Map of Mexico with service regions"
           fill
           style={{ objectFit: "contain" }}
-          className="opacity-100"
+          className="opacity-100 dark:brightness-90 dark:contrast-110"
           priority
         />
 
@@ -137,8 +137,8 @@ export function MexicoMap({ language }: MexicoMapProps) {
           >
             {/* City Label - Posición personalizada */}
             <div
-              className={`absolute px-2 py-1 bg-white rounded-md shadow-md text-xs md:text-sm font-medium whitespace-nowrap ${
-                city.comingSoon ? "text-gray-700" : "text-black"
+              className={`absolute px-2 py-1 bg-white dark:bg-[#2a2a2a] rounded-md shadow-md text-xs md:text-sm font-medium whitespace-nowrap ${
+                city.comingSoon ? "text-gray-700 dark:text-gray-400" : "text-black dark:text-white"
               }`}
               style={{
                 transform: getLabelTransform(city.labelPosition),
@@ -185,14 +185,14 @@ export function MexicoMap({ language }: MexicoMapProps) {
       </div>
 
       {/* Legend */}
-      <div className="absolute bottom-2 left-2 bg-white/90 p-2 rounded-md text-xs">
+      <div className="absolute bottom-2 left-2 bg-white/90 dark:bg-[#2a2a2a]/90 p-2 rounded-md text-xs">
         <div className="flex items-center mb-1">
           <div className="w-3 h-3 rounded-full bg-[#ccb699] mr-2"></div>
-          <span>{language === "es" ? "Ciudades activas" : "Active cities"}</span>
+          <span className="dark:text-white">{language === "es" ? "Ciudades activas" : "Active cities"}</span>
         </div>
         <div className="flex items-center">
           <div className="w-3 h-3 rounded-full bg-gray-500 mr-2"></div>
-          <span>{language === "es" ? "Próximamente" : "Coming soon"}</span>
+          <span className="dark:text-white">{language === "es" ? "Próximamente" : "Coming soon"}</span>
         </div>
       </div>
     </div>
