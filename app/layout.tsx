@@ -29,19 +29,25 @@ export default function RootLayout({
         <link rel="icon" href="/images/mrhoodlogo.png" sizes="any" />
         <meta name="color-scheme" content="light dark" />
 
-        {/* Script para evitar parpadeo inicial */}
+        {/* Script para detectar preferencia del sistema y aplicar tema inicial */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
+                // Verificar si hay un tema guardado en localStorage
                 const savedTheme = localStorage.getItem("theme");
-                let theme;
+                
                 if (savedTheme === "dark" || savedTheme === "light") {
-                  theme = savedTheme;
+                  // Si hay un tema guardado, aplicarlo
+                  document.documentElement.classList.toggle("dark", savedTheme === "dark");
                 } else {
-                  theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                  // Si no hay tema guardado, detectar preferencia del sistema
+                  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                  document.documentElement.classList.toggle("dark", systemPrefersDark);
+                  
+                  // Guardar la preferencia detectada
+                  localStorage.setItem("theme", systemPrefersDark ? "dark" : "light");
                 }
-                document.documentElement.classList.toggle("dark", theme === "dark");
               })();
             `,
           }}
@@ -82,7 +88,7 @@ export default function RootLayout({
         />
         {/* End Google Tag Manager (noscript) */}
 
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
       </body>

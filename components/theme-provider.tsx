@@ -21,7 +21,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="system" // Usar preferencia del sistema por defecto
+      defaultTheme="system" // Usar preferencia del sistema por defecto al inicio
       enableSystem={true} // Habilitar detección del sistema
       disableTransitionOnChange={false}
       {...props}

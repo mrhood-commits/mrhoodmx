@@ -10,12 +10,10 @@ import { Footer } from "@/components/footer"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 import { CountryProvider } from "@/components/country-provider"
-import { ThemeScript } from "./theme-script"
 
 export default function Home() {
   return (
     <CountryProvider>
-      <ThemeScript />
       <div className="relative">
         <Header />
         <main>
