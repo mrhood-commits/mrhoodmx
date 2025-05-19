@@ -49,6 +49,12 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
@@ -295,4 +301,35 @@ iframe.youtube-vertical-video {
 .dark .border-blue-800,
 .dark .border-blue-900 {
   @apply border-[#444444];
+}
+
+body,
+.bg-white,
+.bg-gray-50,
+.bg-gray-100,
+.bg-gray-200,
+.bg-gray-300,
+.bg-gray-400,
+.bg-gray-500,
+.bg-gray-600,
+.bg-gray-700,
+.bg-gray-800,
+.bg-gray-900,
+.text-white,
+.text-black,
+.text-gray-100,
+.text-gray-200,
+.text-gray-300,
+.text-gray-400,
+.text-gray-500,
+.text-gray-600,
+.text-gray-700,
+.text-gray-800,
+.text-gray-900 {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Optimización para imágenes en modo oscuro con transición suave */
+.filter.grayscale {
+  transition: filter 0.3s ease;
 }

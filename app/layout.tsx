@@ -27,6 +27,25 @@ export default function RootLayout({
     <html lang="es" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/images/mrhoodlogo.png" sizes="any" />
+        <meta name="color-scheme" content="light dark" />
+
+        {/* Script para evitar parpadeo inicial */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const savedTheme = localStorage.getItem("theme");
+                let theme;
+                if (savedTheme === "dark" || savedTheme === "light") {
+                  theme = savedTheme;
+                } else {
+                  theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                }
+                document.documentElement.classList.toggle("dark", theme === "dark");
+              })();
+            `,
+          }}
+        />
 
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">
@@ -63,7 +82,7 @@ export default function RootLayout({
         />
         {/* End Google Tag Manager (noscript) */}
 
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
           {children}
         </ThemeProvider>
       </body>
