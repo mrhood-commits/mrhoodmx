@@ -44,7 +44,7 @@ export function ContactSection() {
         </motion.h2>
 
         <motion.div
-          className="max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto"
           variants={container}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
@@ -54,7 +54,7 @@ export function ContactSection() {
               {language === "es" ? "Información de Contacto" : "Contact Information"}
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* CDMX Section */}
               <motion.div
                 className="space-y-6"
@@ -174,9 +174,55 @@ export function ContactSection() {
                   </div>
                 </motion.div>
               </motion.div>
+
+              {/* Nueva sección para Monterrey */}
+              <motion.div
+                className="space-y-6"
+                variants={container}
+                initial="hidden"
+                animate={inView ? "show" : "hidden"}
+              >
+                <h4 className="text-xl font-semibold text-[#ccb699]">
+                  {language === "es" ? "MONTERREY" : "MONTERREY"}
+                </h4>
+
+                <motion.div className="flex items-start" variants={item} whileHover={{ x: 5 }}>
+                  <MapPin className="h-6 w-6 text-[#ccb699] mr-4 mt-1" />
+                  <div>
+                    <h4 className="font-semibold mb-1">{language === "es" ? "Dirección" : "Address"}</h4>
+                    <a
+                      href="https://maps.app.goo.gl/YourMonterreyMapLink"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors flex items-center"
+                    >
+                      <span>
+                        Calle Sahuaro #326, fraccionamiento Cerrada De Cumbres, Sector Sahuaro, Monterrey, Nuevo León,
+                        C.P. 64349
+                      </span>
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
+                  </div>
+                </motion.div>
+
+                <motion.div className="flex items-start" variants={item} whileHover={{ x: 5 }}>
+                  <Phone className="h-6 w-6 text-[#ccb699] mr-4 mt-1" />
+                  <div>
+                    <h4 className="font-semibold mb-1">{language === "es" ? "Teléfono" : "Phone"}</h4>
+                    <a
+                      href="https://wa.me/5218130852922"
+                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      +52 1 81 3085 2922
+                    </a>
+                  </div>
+                </motion.div>
+              </motion.div>
             </div>
 
-            {/* Email - Common for both */}
+            {/* Email - Common for all */}
             <motion.div className="flex items-start mt-8" variants={item} whileHover={{ x: 5 }}>
               <Mail className="h-6 w-6 text-[#ccb699] mr-4 mt-1" />
               <div>
@@ -190,8 +236,6 @@ export function ContactSection() {
               </div>
             </motion.div>
           </motion.div>
-
-          {/* Se ha eliminado el botón "Solicitar presupuesto" */}
         </motion.div>
       </div>
     </section>

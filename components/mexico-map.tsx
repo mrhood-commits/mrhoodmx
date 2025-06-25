@@ -11,7 +11,7 @@ interface CityMarker {
   y: number
   whatsapp: string
   comingSoon?: boolean
-  labelPosition?: "top" | "right" | "bottom" | "left" | "top-left" | "top-right" | "bottom-left" | "bottom-right" // Posiciones adicionales
+  labelPosition?: "top" | "right" | "bottom" | "left" | "top-left" | "top-right" | "bottom-left" | "bottom-right"
 }
 
 interface MexicoMapProps {
@@ -21,7 +21,7 @@ interface MexicoMapProps {
 export function MexicoMap({ language }: MexicoMapProps) {
   const [activeCity, setActiveCity] = useState<string | null>(null)
 
-  // Coordenadas con posiciones de etiquetas personalizadas
+  // Coordenadas actualizadas - Monterrey ya no es "coming soon"
   const cities: CityMarker[] = [
     {
       name: "Mexico City",
@@ -29,7 +29,7 @@ export function MexicoMap({ language }: MexicoMapProps) {
       x: 55.2,
       y: 68.9,
       whatsapp: "+525512991343",
-      labelPosition: "top", // Etiqueta arriba (posición predeterminada)
+      labelPosition: "top",
     },
     {
       name: "Playa del Carmen",
@@ -37,7 +37,7 @@ export function MexicoMap({ language }: MexicoMapProps) {
       x: 95.4,
       y: 66,
       whatsapp: "+529982426454",
-      labelPosition: "left", // Etiqueta a la izquierda
+      labelPosition: "left",
     },
     {
       name: "Mérida",
@@ -45,7 +45,7 @@ export function MexicoMap({ language }: MexicoMapProps) {
       x: 88.5,
       y: 60.1,
       whatsapp: "+529982426454",
-      labelPosition: "left", // Etiqueta a la izquierda
+      labelPosition: "left",
     },
     {
       name: "Tulum",
@@ -53,7 +53,7 @@ export function MexicoMap({ language }: MexicoMapProps) {
       x: 94.3,
       y: 69.8,
       whatsapp: "+529982426454",
-      labelPosition: "bottom", // Etiqueta abajo
+      labelPosition: "bottom",
     },
     {
       name: "Cancún",
@@ -61,16 +61,15 @@ export function MexicoMap({ language }: MexicoMapProps) {
       x: 94.8,
       y: 59.4,
       whatsapp: "+529982426454",
-      labelPosition: "top-left", // Cambiado a arriba-izquierda para evitar que se corte
+      labelPosition: "top-left",
     },
     {
       name: "Monterrey",
       nameEs: "Monterrey",
       x: 55.2,
-      y: 42, // Ajustado más abajo para mejor centrado
-      whatsapp: "+525512991343",
-      comingSoon: true,
-      labelPosition: "top", // Etiqueta arriba (posición predeterminada)
+      y: 42,
+      whatsapp: "+5218130852922", // Nuevo número de WhatsApp para Monterrey
+      labelPosition: "top",
     },
   ]
 
@@ -88,23 +87,23 @@ export function MexicoMap({ language }: MexicoMapProps) {
   ) => {
     switch (position) {
       case "top":
-        return "translate(-50%, -130%)" // Arriba del marcador
+        return "translate(-50%, -130%)"
       case "right":
-        return "translate(20%, -50%)" // A la derecha del marcador
+        return "translate(20%, -50%)"
       case "bottom":
-        return "translate(-50%, 130%)" // Abajo del marcador
+        return "translate(-50%, 130%)"
       case "left":
-        return "translate(-120%, -50%)" // A la izquierda del marcador
+        return "translate(-120%, -50%)"
       case "top-left":
-        return "translate(-120%, -100%)" // Arriba a la izquierda
+        return "translate(-120%, -100%)"
       case "top-right":
-        return "translate(20%, -100%)" // Arriba a la derecha
+        return "translate(20%, -100%)"
       case "bottom-left":
-        return "translate(-120%, 50%)" // Abajo a la izquierda
+        return "translate(-120%, 50%)"
       case "bottom-right":
-        return "translate(20%, 50%)" // Abajo a la derecha
+        return "translate(20%, 50%)"
       default:
-        return "translate(-50%, -130%)" // Valor predeterminado
+        return "translate(-50%, -130%)"
     }
   }
 
@@ -137,20 +136,13 @@ export function MexicoMap({ language }: MexicoMapProps) {
           >
             {/* City Label - Posición personalizada */}
             <div
-              className={`absolute px-2 py-1 bg-white dark:bg-[#2a2a2a] rounded-md shadow-md text-xs md:text-sm font-medium whitespace-nowrap ${
-                city.comingSoon ? "text-gray-700 dark:text-gray-400" : "text-black dark:text-white"
-              }`}
+              className={`absolute px-2 py-1 bg-white dark:bg-[#2a2a2a] rounded-md shadow-md text-xs md:text-sm font-medium whitespace-nowrap text-black dark:text-white`}
               style={{
                 transform: getLabelTransform(city.labelPosition),
                 minWidth: "max-content",
               }}
             >
               {language === "es" ? city.nameEs : city.name}
-              {city.comingSoon && (
-                <span className="ml-1 text-[0.65rem] text-yellow-500 font-normal">
-                  {language === "es" ? "(Próximamente)" : "(Coming Soon)"}
-                </span>
-              )}
             </div>
 
             {/* City Marker */}
@@ -160,22 +152,15 @@ export function MexicoMap({ language }: MexicoMapProps) {
               whileHover={{ scale: 1.2 }}
               onHoverStart={() => setActiveCity(city.name)}
               onHoverEnd={() => setActiveCity(null)}
-              onClick={() => !city.comingSoon && openWhatsApp(city.whatsapp)}
+              onClick={() => openWhatsApp(city.whatsapp)}
             >
-              <motion.div className={`relative flex flex-col items-center ${city.comingSoon ? "opacity-80" : ""}`}>
+              <motion.div className="relative flex flex-col items-center">
                 <motion.div
-                  className={`w-4 h-4 md:w-5 md:h-5 rounded-full ${
-                    city.comingSoon ? "bg-gray-500" : "bg-[#ccb699]"
-                  } ${activeCity === city.name ? "ring-4 ring-[#ccb699]/30" : ""} shadow-md`}
+                  className={`w-4 h-4 md:w-5 md:h-5 rounded-full bg-[#ccb699] ${
+                    activeCity === city.name ? "ring-4 ring-[#ccb699]/30" : ""
+                  } shadow-md`}
                   animate={{
-                    backgroundColor:
-                      activeCity === city.name
-                        ? city.comingSoon
-                          ? "#666666"
-                          : "#b39c7d"
-                        : city.comingSoon
-                          ? "#999999"
-                          : "#ccb699",
+                    backgroundColor: activeCity === city.name ? "#b39c7d" : "#ccb699",
                   }}
                 />
               </motion.div>
@@ -184,15 +169,11 @@ export function MexicoMap({ language }: MexicoMapProps) {
         ))}
       </div>
 
-      {/* Legend */}
+      {/* Legend - Actualizada sin "próximamente" */}
       <div className="absolute bottom-2 left-2 bg-white/90 dark:bg-[#2a2a2a]/90 p-2 rounded-md text-xs">
-        <div className="flex items-center mb-1">
+        <div className="flex items-center">
           <div className="w-3 h-3 rounded-full bg-[#ccb699] mr-2"></div>
           <span className="dark:text-white">{language === "es" ? "Ciudades activas" : "Active cities"}</span>
-        </div>
-        <div className="flex items-center">
-          <div className="w-3 h-3 rounded-full bg-gray-500 mr-2"></div>
-          <span className="dark:text-white">{language === "es" ? "Próximamente" : "Coming soon"}</span>
         </div>
       </div>
     </div>
