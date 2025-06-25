@@ -54,7 +54,7 @@ export function ContactSection() {
               {language === "es" ? "Información de Contacto" : "Contact Information"}
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* CDMX Section */}
               <motion.div
                 className="space-y-6"
@@ -67,29 +67,29 @@ export function ContactSection() {
                 </h4>
 
                 <motion.div className="flex items-start" variants={item} whileHover={{ x: 5 }}>
-                  <MapPin className="h-6 w-6 text-[#ccb699] mr-4 mt-1" />
-                  <div>
-                    <h4 className="font-semibold mb-1">{language === "es" ? "Dirección" : "Address"}</h4>
+                  <MapPin className="h-5 w-5 text-[#ccb699] mr-3 mt-1 flex-shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <h5 className="font-semibold mb-1 text-sm">{language === "es" ? "Dirección" : "Address"}</h5>
                     <a
                       href="https://maps.app.goo.gl/Ld9Eo9Eo9Eo9Eo9E6"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors flex items-center"
+                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors text-sm leading-relaxed break-words"
                     >
-                      <span>Xola 154 Álamos - Ciudad de México y alrededores</span>
-                      <ExternalLink className="ml-2 h-4 w-4" />
+                      Xola 154 Álamos - Ciudad de México y alrededores
+                      <ExternalLink className="inline ml-1 h-3 w-3" />
                     </a>
                   </div>
                 </motion.div>
 
                 <motion.div className="flex items-start" variants={item} whileHover={{ x: 5 }}>
-                  <Phone className="h-6 w-6 text-[#ccb699] mr-4 mt-1" />
-                  <div>
-                    <h4 className="font-semibold mb-1">{language === "es" ? "Teléfonos" : "Phones"}</h4>
-                    <div className="space-y-2">
+                  <Phone className="h-5 w-5 text-[#ccb699] mr-3 mt-1 flex-shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <h5 className="font-semibold mb-1 text-sm">{language === "es" ? "Teléfonos" : "Phones"}</h5>
+                    <div className="space-y-1">
                       <a
                         href="https://wa.me/525552957168"
-                        className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors block"
+                        className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors block text-sm"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -97,7 +97,7 @@ export function ContactSection() {
                       </a>
                       <a
                         href="https://wa.me/525512991343"
-                        className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors block"
+                        className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors block text-sm"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -105,7 +105,7 @@ export function ContactSection() {
                       </a>
                       <a
                         href="https://wa.me/525565364142"
-                        className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors block"
+                        className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors block text-sm"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -116,12 +116,12 @@ export function ContactSection() {
                 </motion.div>
 
                 <motion.div className="flex items-start" variants={item} whileHover={{ x: 5 }}>
-                  <AlertTriangle className="h-6 w-6 text-red-500 mr-4 mt-1" />
-                  <div>
-                    <h4 className="font-semibold mb-1">{language === "es" ? "URGENCIAS" : "EMERGENCIES"}</h4>
+                  <AlertTriangle className="h-5 w-5 text-red-500 mr-3 mt-1 flex-shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <h5 className="font-semibold mb-1 text-sm">{language === "es" ? "URGENCIAS" : "EMERGENCIES"}</h5>
                     <a
                       href="https://wa.me/525565364142"
-                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors"
+                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors text-sm"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -143,29 +143,31 @@ export function ContactSection() {
                 </h4>
 
                 <motion.div className="flex items-start" variants={item} whileHover={{ x: 5 }}>
-                  <MapPin className="h-6 w-6 text-[#ccb699] mr-4 mt-1" />
-                  <div>
-                    <h4 className="font-semibold mb-1">{language === "es" ? "Dirección" : "Address"}</h4>
+                  <MapPin className="h-5 w-5 text-[#ccb699] mr-3 mt-1 flex-shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <h5 className="font-semibold mb-1 text-sm">{language === "es" ? "Dirección" : "Address"}</h5>
                     <a
                       href="https://maps.app.goo.gl/Ld9Eo9Eo9Eo9Eo9E6"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors flex items-center"
+                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors text-sm leading-relaxed break-words"
                     >
-                      <span>Carretera Federal y Calle 23 Sur, Ejidal, 77710 Playa del Carmen, Q.R.</span>
-                      <ExternalLink className="ml-2 h-4 w-4" />
+                      Carretera Federal y Calle 23 Sur, Ejidal, 77710 Playa del Carmen, Q.R.
+                      <ExternalLink className="inline ml-1 h-3 w-3" />
                     </a>
-                    <p className="text-gray-400 dark:text-[#999999] mt-1">Playa del Carmen, Cancun, Tulum, Merida</p>
+                    <p className="text-gray-400 dark:text-[#999999] mt-1 text-xs">
+                      Playa del Carmen, Cancun, Tulum, Merida
+                    </p>
                   </div>
                 </motion.div>
 
                 <motion.div className="flex items-start" variants={item} whileHover={{ x: 5 }}>
-                  <Phone className="h-6 w-6 text-[#ccb699] mr-4 mt-1" />
-                  <div>
-                    <h4 className="font-semibold mb-1">{language === "es" ? "Teléfono" : "Phone"}</h4>
+                  <Phone className="h-5 w-5 text-[#ccb699] mr-3 mt-1 flex-shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <h5 className="font-semibold mb-1 text-sm">{language === "es" ? "Teléfono" : "Phone"}</h5>
                     <a
                       href="https://wa.me/529982426454"
-                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors"
+                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors text-sm"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -175,7 +177,7 @@ export function ContactSection() {
                 </motion.div>
               </motion.div>
 
-              {/* Nueva sección para Monterrey */}
+              {/* Monterrey Section */}
               <motion.div
                 className="space-y-6"
                 variants={container}
@@ -187,31 +189,29 @@ export function ContactSection() {
                 </h4>
 
                 <motion.div className="flex items-start" variants={item} whileHover={{ x: 5 }}>
-                  <MapPin className="h-6 w-6 text-[#ccb699] mr-4 mt-1" />
-                  <div>
-                    <h4 className="font-semibold mb-1">{language === "es" ? "Dirección" : "Address"}</h4>
+                  <MapPin className="h-5 w-5 text-[#ccb699] mr-3 mt-1 flex-shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <h5 className="font-semibold mb-1 text-sm">{language === "es" ? "Dirección" : "Address"}</h5>
                     <a
                       href="https://maps.app.goo.gl/YourMonterreyMapLink"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors flex items-center"
+                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors text-sm leading-relaxed break-words"
                     >
-                      <span>
-                        Calle Sahuaro #326, fraccionamiento Cerrada De Cumbres, Sector Sahuaro, Monterrey, Nuevo León,
-                        C.P. 64349
-                      </span>
-                      <ExternalLink className="ml-2 h-4 w-4" />
+                      Calle Sahuaro #326, fraccionamiento Cerrada De Cumbres, Sector Sahuaro, Monterrey, Nuevo León,
+                      C.P. 64349
+                      <ExternalLink className="inline ml-1 h-3 w-3" />
                     </a>
                   </div>
                 </motion.div>
 
                 <motion.div className="flex items-start" variants={item} whileHover={{ x: 5 }}>
-                  <Phone className="h-6 w-6 text-[#ccb699] mr-4 mt-1" />
-                  <div>
-                    <h4 className="font-semibold mb-1">{language === "es" ? "Teléfono" : "Phone"}</h4>
+                  <Phone className="h-5 w-5 text-[#ccb699] mr-3 mt-1 flex-shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <h5 className="font-semibold mb-1 text-sm">{language === "es" ? "Teléfono" : "Phone"}</h5>
                     <a
                       href="https://wa.me/5218130852922"
-                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors"
+                      className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors text-sm"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -223,13 +223,17 @@ export function ContactSection() {
             </div>
 
             {/* Email - Common for all */}
-            <motion.div className="flex items-start mt-8" variants={item} whileHover={{ x: 5 }}>
-              <Mail className="h-6 w-6 text-[#ccb699] mr-4 mt-1" />
-              <div>
-                <h4 className="font-semibold mb-1">{language === "es" ? "Correo Electrónico" : "Email"}</h4>
+            <motion.div
+              className="flex items-start mt-8 pt-6 border-t border-gray-600"
+              variants={item}
+              whileHover={{ x: 5 }}
+            >
+              <Mail className="h-5 w-5 text-[#ccb699] mr-3 mt-1 flex-shrink-0" />
+              <div className="min-w-0 flex-1">
+                <h5 className="font-semibold mb-1 text-sm">{language === "es" ? "Correo Electrónico" : "Email"}</h5>
                 <a
                   href="mailto:ventas@limpiezadecampanas.com.mx"
-                  className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors"
+                  className="text-gray-300 dark:text-[#cccccc] hover:text-[#ccb699] transition-colors text-sm"
                 >
                   ventas@limpiezadecampanas.com.mx
                 </a>
